@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.coderbbs.bbsdemo.dao.DiscussPostMapper">
+    <sql id="selectFields">
+        id, user_id, title, content, type, status, create_time, comment_count, score
+    </sql>
+
+    <select id="selectDiscussPosts" resultType="DiscussPost">
+        select <include refid="selectFields"></include>
+        from discuss_post
+        where status != 2<!--这就是拉黑的用户的帖子就看不见了-->
+        <if test="userId!=0"><!--如果这个参数被输入了，那么查找这个用户发的帖子-->
+            and user_id = #{userId}
+        </if>
+        order by type desc, create_time desc<!--先放置顶帖子，再按照发帖时间排序-->
+        limit #{offset}, #{limit}<!--offset是起始行，limit是一页的个数-->
+    </select>
+
+    <select id="selectDiscussPostRows" resultType="int">
+        select count(id)
+        from discuss_post
+        where status!=2
+        <if test="userId!=0">
+            and user_id = #{userId}
+        </if>
+    </select>
+    
+</mapper>
