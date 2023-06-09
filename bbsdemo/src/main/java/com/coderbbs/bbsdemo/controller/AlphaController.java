@@ -1,8 +1,11 @@
 package com.coderbbs.bbsdemo.controller;
 
 import com.coderbbs.bbsdemo.service.AlphaService;
+import com.coderbbs.bbsdemo.util.CommunityUtil;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -143,6 +146,47 @@ public class AlphaController {
         list.add(emp);
 
         return list;
+    }
+    //cookie示例.这是用户向服务器请求一个cookie，但cookie只能存小量的字符串
+    @RequestMapping(path="/cookie/set", method = RequestMethod.GET)
+    @ResponseBody
+    public String setCookie(HttpServletResponse response){
+        //创建一个cookie对象
+        Cookie cookie = new Cookie("code", CommunityUtil.generateUUID());
+        //设置cookie生效范围
+        cookie.setPath("/community/alpha");
+        //cookie默认存在浏览器内存里，如果浏览器关了就没了。如果需要更久的保存，要设置保存时间
+        cookie.setMaxAge(60*10);//单位是秒，这里意思是十分钟
+        //发送cookie，放到response的头里
+        response.addCookie(cookie);
+        return "set cookie";
+    }
+
+    //获得浏览器给服务端的cookie,这里东西会输出在控制台
+    @RequestMapping(path="/cookie/get", method = RequestMethod.GET)
+    @ResponseBody
+    public String getCookie(@CookieValue("code") String code){//这里获得之前set cookie的时候生成的code来判断得到的cookie
+        System.out.println(code);
+        return "get cookie";
+    }
+
+    //和cookie类似的session，但是session可以存很多数据、任何类型的数据，因为它固定存储在服务器中
+    @RequestMapping(path="/session/set", method = RequestMethod.GET)
+    @ResponseBody
+    public String setSession(HttpSession session){
+        //springmvc可以自动创建session然后注入
+        session.setAttribute("id", 1);
+        session.setAttribute("name", "Test");
+        return "set session";
+    }
+
+    //获得session
+    @RequestMapping(path="/session/get", method = RequestMethod.GET)
+    @ResponseBody
+    public String getSession(HttpSession session){
+        System.out.println(session.getAttribute("id"));
+        System.out.println(session.getAttribute("name"));
+        return "get session";
     }
 
 }

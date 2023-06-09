@@ -2,6 +2,7 @@ package com.coderbbs.bbsdemo.service;
 
 import com.coderbbs.bbsdemo.dao.UserMapper;
 import com.coderbbs.bbsdemo.entity.User;
+import com.coderbbs.bbsdemo.util.CommunityConstant;
 import com.coderbbs.bbsdemo.util.CommunityUtil;
 import com.coderbbs.bbsdemo.util.MailClient;
 import org.apache.commons.lang3.StringUtils;
@@ -17,7 +18,7 @@ import java.util.Map;
 import java.util.Random;
 
 @Service
-public class UserService {
+public class UserService implements CommunityConstant {
     @Autowired
     private UserMapper userMapper;
 
@@ -46,28 +47,28 @@ public class UserService {
             throw new IllegalArgumentException("User can not be empty!");
         }
         if(StringUtils.isBlank(user.getUsername())){
-            map.put("Username Msg", "Username can not be empty!");
+            map.put("UsernameMsg", "Username can not be empty!");
             return map;
         }
         if(StringUtils.isBlank(user.getPassword())){
-            map.put("Password Msg", "Password can not be empty!");
+            map.put("PasswordMsg", "Password can not be empty!");
             return map;
         }
         if(StringUtils.isBlank(user.getEmail())){
-            map.put("Email Msg", "Email can not be empty!");
+            map.put("EmailMsg", "Email can not be empty!");
             return map;
         }
 
         //验证信息是否已被注册过
         User u = userMapper.selectByName(user.getUsername());//u是数据库里真实存在的数据，user是正在注册的数据
         if(u!=null){
-            map.put("Username Msg", "The username has been taken!");
+            map.put("UsernameMsg", "The username has been taken!");
             return map;
         }
         //然后是验证邮箱
         u = userMapper.selectByEmail(user.getEmail());
         if(u!=null){
-            map.put("Email Msg", "The email has been used!");
+            map.put("EmailMsg", "The email has been used!");
             return map;
         }
 
@@ -79,7 +80,7 @@ public class UserService {
         user.setActivationCode(CommunityUtil.generateUUID());//给用户发送的激活码
 
         //给用户一个默认的头像
-        user.setHeaderUrl(String.format("http://images.nowcoder.com/head/%dt.png", new Random().nextInt(1000)));
+        user.setHeaderUrl(String.format("http://images.nowcoder.com/head/%d.png", new Random().nextInt(1000)));
         user.setCreateTime(new Date());
 
         //注入进数据库中.用户注册时是没有id的，但insert后mybatis会自动生成id（在配置文件中设成了true）
@@ -93,10 +94,24 @@ public class UserService {
         context.setVariable("url", url);
 
         String content = templateEngine.process("/mail/activation", context);
-        mailClient.sendMail(user.getEmail(), "Active the account", content);
+        //mailClient.sendMail(user.getEmail(), "Active the account", content);
 
         return map;
     }
 
+    public int activation(int userId, String code){
+        User user = userMapper.selectById(userId);
+        if(user.getStatus()==1){
+            //注册的时候设置为0，激活后改为1。若已经是1，说明已被激活
+            return ACTIVATION_REPEAT;
+        }else if(user.getActivationCode().equals(code)){
+            //如果激活码和传入的激活码一致，那么激活成功
+            userMapper.updateStatus(userId, 1);
+            return ACTIVATION_SUCCESS;
+        }
+        else{
+            return ACTIVATION_FAIL;
+        }
+    }
 
 }
