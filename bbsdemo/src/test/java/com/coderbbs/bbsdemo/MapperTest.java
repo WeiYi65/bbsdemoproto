@@ -1,9 +1,12 @@
 package com.coderbbs.bbsdemo;
 
 import com.coderbbs.bbsdemo.dao.DiscussPostMapper;
+import com.coderbbs.bbsdemo.dao.LoginTicketMapper;
 import com.coderbbs.bbsdemo.dao.UserMapper;
 import com.coderbbs.bbsdemo.entity.DiscussPost;
+import com.coderbbs.bbsdemo.entity.LoginTicket;
 import com.coderbbs.bbsdemo.entity.User;
+import org.apache.ibatis.annotations.Insert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,6 +27,9 @@ public class MapperTest {
     @Autowired
     private DiscussPostMapper discussPostMapper;
 
+    @Autowired
+    private LoginTicketMapper loginTicketMapper;
+
     @Test
     public void testSelectUser(){
         User user = userMapper.selectById(101);
@@ -40,10 +46,11 @@ public class MapperTest {
     public void testInsertUser(){
         //新建需要实例化一个user
         User user = new User();
-        user.setUsername("TEST");
+        user.setUsername("TT");
         user.setPassword("1234");
         user.setSalt("abc");
         user.setEmail("test@sina.com");
+        user.setStatus(1);
         user.setHeaderUrl("http://www.nowcoder.com/101.png");
         user.setCreateTime(new Date());
 
@@ -78,4 +85,28 @@ public class MapperTest {
         int rows = discussPostMapper.selectDiscussPostRows(0);
         System.out.println(rows);
     }
+
+    @Test
+    public void testInsertLoginTicket(){
+        LoginTicket loginTicket = new LoginTicket();
+        loginTicket.setUserId(101);
+        loginTicket.setTicket("abc");
+        loginTicket.setStatus(0);
+        loginTicket.setExpired(new Date(System.currentTimeMillis()+1000*60*10));
+
+        loginTicketMapper.insertLoginTicket(loginTicket);
+    }
+
+    @Test
+    public void testSelectLoginTicket() {
+        //最终发现这里的userid是不可以重复的！
+        LoginTicket loginTicket = loginTicketMapper.selectByTicket("abc");
+        System.out.println(loginTicket);
+
+        loginTicketMapper.updateStatus("abc", 1);
+        loginTicket = loginTicketMapper.selectByTicket("abc");
+        System.out.println(loginTicket);
+    }
+
+
 }

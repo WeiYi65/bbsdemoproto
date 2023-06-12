@@ -3,20 +3,44 @@ package com.coderbbs.bbsdemo.controller;
 import com.coderbbs.bbsdemo.entity.User;
 import com.coderbbs.bbsdemo.service.UserService;
 import com.coderbbs.bbsdemo.util.CommunityConstant;
+import com.google.code.kaptcha.Producer;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.Buffer;
 import java.util.Map;
 
 @Controller
 public class LoginController implements CommunityConstant {
 
+    //开一个日志记录本controller内的异常
+    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private Producer kaptchaProducer;
+
+    @Value("${server.servlet.context-path}")
+    private String contextPath;
 
     @RequestMapping(path = "/register", method = RequestMethod.GET)
     public String getRegisterPage(){
@@ -62,5 +86,67 @@ public class LoginController implements CommunityConstant {
             model.addAttribute("target", "/index");
         }
         return "/site/operate-result";
+    }
+
+
+    //验证码图片刷新
+    @RequestMapping(path="/kaptcha", method=RequestMethod.GET)
+    public void getKaptcha(HttpServletResponse response, HttpSession session){
+        //验证码是敏感信息，要存在客户端里，所以要使用session
+        //生成验证码（使用前要把producer那个类作为bean注入）
+        String text = kaptchaProducer.createText();//会根据config类里的配置生成字符串
+        BufferedImage image = kaptchaProducer.createImage(text);
+
+        //把验证码存入session
+        session.setAttribute("kaptcha", text);
+        //将图片输出给浏览器
+        response.setContentType("image/png");
+        try {
+            OutputStream os = response.getOutputStream();
+            ImageIO.write(image, "png", os);
+        } catch (IOException e) {
+            //如果有异常，计入日志
+            logger.error("Fail to get the verification code: "+ e.getMessage());
+        }
+    }
+
+    //可以重复路径，前提是method里的方法要不同。上面的是get，这里的是post
+    @RequestMapping(path="/login", method = RequestMethod.POST)
+    public String login(String username, String password, String code, boolean rememberMe,
+                        Model model, HttpSession session, HttpServletResponse response){
+        //session是因为验证码处用了，response也是一样（用了cookie）
+        String kaptcha = (String) session.getAttribute("kaptcha");
+        //上面是因为getAttri返回的是object，要强制转换成String
+
+        if (StringUtils.isBlank(kaptcha) || StringUtils.isBlank(code) || !kaptcha.equalsIgnoreCase(code)){
+            model.addAttribute("codeMsg", "Code is not correct.");
+            return "/site/login";//验证码不对，返回登录界面
+        }
+
+        //检查账号密码
+
+        int expiredSeconds = rememberMe?REMEMBER_EXPIRED_SECONDS : DEFAULT_EXPIRED_SECONDS;
+
+        //是在这里调用登录的方法登录的，user service里的方法不能直接登录，要在这里调用
+        Map<String, Object> map = userService.login(username, password, expiredSeconds);
+
+        //如果登录无误，login方法里会生成ticket，如果有ticket就说明登录没问题，直接登上
+        if (map.containsKey("ticket")){
+            Cookie cookie = new Cookie("ticket", map.get("ticket").toString());//登录信息存进cookie里
+            cookie.setPath(contextPath);
+            cookie.setMaxAge(expiredSeconds);
+            response.addCookie(cookie);
+            return "redirect:/index";
+        }else{//有问题就回退登录页面
+            model.addAttribute("usernameMsg", map.get("usernameMsg"));
+            model.addAttribute("passwordMsg", map.get("passwordMsg"));
+            return "/site/login";
+        }
+    }
+
+    @RequestMapping(path="/logout", method = RequestMethod.GET)
+    public String logout(@CookieValue("ticket") String ticket){
+        userService.logout(ticket);//这里是业务层和表现层的区分
+        return "redirect:/login";//默认回去get请求的那个login
     }
 }

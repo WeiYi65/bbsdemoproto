@@ -1,6 +1,8 @@
 package com.coderbbs.bbsdemo.service;
 
+import com.coderbbs.bbsdemo.dao.LoginTicketMapper;
 import com.coderbbs.bbsdemo.dao.UserMapper;
+import com.coderbbs.bbsdemo.entity.LoginTicket;
 import com.coderbbs.bbsdemo.entity.User;
 import com.coderbbs.bbsdemo.util.CommunityConstant;
 import com.coderbbs.bbsdemo.util.CommunityUtil;
@@ -12,10 +14,8 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.sql.SQLOutput;
+import java.util.*;
 
 @Service
 public class UserService implements CommunityConstant {
@@ -27,6 +27,9 @@ public class UserService implements CommunityConstant {
 
     @Autowired
     private TemplateEngine templateEngine;
+
+    @Autowired
+    private LoginTicketMapper loginTicketMapper;
 
     @Value("${community.path.domain}")//这里是在引用properties里的值并让他变成domain
     private String domain;
@@ -114,4 +117,55 @@ public class UserService implements CommunityConstant {
         }
     }
 
+
+    public Map<String, Object> login(String username, String password, int expiredSeconds){
+        Map<String, Object> map = new HashMap<>();
+
+        //空值判断
+        if (StringUtils.isBlank(username)){
+            map.put("usernameMsg", "Username can not be empty!");
+            return map;
+        }
+        if (StringUtils.isBlank(password)){
+            map.put("passwordMsg", "Password can not be empty!");
+            return map;
+        }
+
+        //存在和激活判断
+        User user = userMapper.selectByName(username);
+        if (user==null){
+            map.put("usernameMsg", "The account does not exist.");
+            return map;
+        }
+        if(user.getStatus()==0){
+            map.put("usernameMsg", "The account is not activated.");
+            return map;
+        }
+
+        //验证密码
+        //password = CommunityUtil.md5(password+user.getSalt());
+        //System.out.println(user.getPassword());这里似乎没有给本来的密码进行过加密
+        //System.out.println(password);
+        if(!user.getPassword().equals(password)){
+            map.put("passwordMsg", "The password is not correct.");
+            return map;
+        }
+
+        //以上验证都通过，那么可以登录。生成新的登录凭证
+        LoginTicket loginTicket = new LoginTicket();
+        loginTicket.setUserId(user.getId());
+        loginTicket.setTicket(CommunityUtil.generateUUID());
+        loginTicket.setStatus(0);
+        loginTicket.setExpired(new Date(System.currentTimeMillis()+expiredSeconds*1000));
+        loginTicketMapper.insertLoginTicket(loginTicket);//把新生成的凭证放进sql里
+
+        map.put("ticket", loginTicket.getTicket());
+
+        return map;
+    }
+
+    //退出登录
+    public void logout(String ticket){
+        loginTicketMapper.updateStatus(ticket, 1);
+    }
 }
