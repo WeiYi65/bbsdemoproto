@@ -77,7 +77,8 @@ public class UserService implements CommunityConstant {
 
         //根据信息注册用户，先对用户密码进行加密
         user.setSalt(CommunityUtil.generateUUID().substring(0, 5));//生成盐
-        user.setPassword(CommunityUtil.md5(user.getPassword()+user.getSalt()));//把盐和密码一起加密
+        //user.setPassword(CommunityUtil.md5(user.getPassword()+user.getSalt()));//把盐和密码一起加密
+        user.setPassword(user.getPassword());
         user.setType(0);//帮用户设定好type和status
         user.setStatus(0);
         user.setActivationCode(CommunityUtil.generateUUID());//给用户发送的激活码
@@ -167,5 +168,24 @@ public class UserService implements CommunityConstant {
     //退出登录
     public void logout(String ticket){
         loginTicketMapper.updateStatus(ticket, 1);
+    }
+
+    public LoginTicket findLoginTicket(String ticket){
+        return loginTicketMapper.selectByTicket(ticket);
+    }
+
+    public int updateHeader(int userId, String headerUrl){
+        return userMapper.updateHeader(userId, headerUrl);
+    }
+
+    public int updatePassword(int userId, String password){
+        return userMapper.updatePassword(userId, password);
+    }
+
+
+    public boolean oldPassword(int userId, String oldPassword){
+        //勘验本方法无误
+        User user = userMapper.selectById(userId);
+        return user.getPassword().equals(oldPassword);
     }
 }
