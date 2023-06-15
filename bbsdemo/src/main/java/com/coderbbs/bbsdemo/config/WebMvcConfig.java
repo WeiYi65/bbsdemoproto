@@ -1,6 +1,7 @@
 package com.coderbbs.bbsdemo.config;
 
 import com.coderbbs.bbsdemo.controller.Interceptor.AlphaInterceptor;
+import com.coderbbs.bbsdemo.controller.Interceptor.LoginRequiredInterceptor;
 import com.coderbbs.bbsdemo.controller.Interceptor.LoginTicketInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Autowired
     private LoginTicketInterceptor loginTicketInterceptor;
 
+    @Autowired
+    private LoginRequiredInterceptor loginRequiredInterceptor;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {//不拦截所有静态资源和拦截特定功能
         registry.addInterceptor(alphaInterceptor)
@@ -22,6 +26,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .addPathPatterns("/register", "/login");
 
         registry.addInterceptor(loginTicketInterceptor)
+                .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg","/**/*.jpeg");
+
+        registry.addInterceptor(loginRequiredInterceptor)
                 .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg","/**/*.jpeg");
     }
 }

@@ -1,5 +1,6 @@
 package com.coderbbs.bbsdemo.controller;
 
+import com.coderbbs.bbsdemo.annotation.LoginRequired;
 import com.coderbbs.bbsdemo.entity.User;
 import com.coderbbs.bbsdemo.service.UserService;
 import com.coderbbs.bbsdemo.util.CommunityUtil;
@@ -45,12 +46,14 @@ public class UserController {
     @Autowired
     private HostHolder hostHolder;
 
+    @LoginRequired
     @RequestMapping(path="/setting", method = RequestMethod.GET)
     public String getSettingPage(){
         return "/site/setting";
     }
 
     //修改头像
+    @LoginRequired
     @RequestMapping(path="/upload", method = RequestMethod.POST)
     //上传东西的时候表单的提交方式必须为post
     public String uploadHeader(MultipartFile headerImage, Model model){
@@ -114,6 +117,7 @@ public class UserController {
     }
 
     //修改密码
+    @LoginRequired
     @RequestMapping(path="/reset", method = RequestMethod.POST)
     public String resetPassword(String oldPassword, String newPassword, String newPassword2, Model model){
         User user = hostHolder.getUser();

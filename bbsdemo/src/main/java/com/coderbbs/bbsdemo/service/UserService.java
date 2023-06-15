@@ -184,7 +184,6 @@ public class UserService implements CommunityConstant {
 
 
     public boolean oldPassword(int userId, String oldPassword){
-        //勘验本方法无误
         User user = userMapper.selectById(userId);
         return user.getPassword().equals(oldPassword);
     }
