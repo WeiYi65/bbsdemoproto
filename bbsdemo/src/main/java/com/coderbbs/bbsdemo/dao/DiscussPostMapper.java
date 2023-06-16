@@ -14,4 +14,10 @@ public interface DiscussPostMapper {
     //这个参数也是可要可不要的，但因为它只有一个参数，所以必须带注释，注释的另一个作用是给参数取别名（这里没变）
     int selectDiscussPostRows(@Param("userId") int userId);
 
+
+    int insertDiscussPost(DiscussPost discussPost);
+
+    //查看帖子详情方法
+    DiscussPost selectDiscussPostByPostId(int id);
+
 }

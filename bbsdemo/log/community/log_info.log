@@ -1,12 +1,48 @@
-2023-06-15 00:08:10,436 INFO [main] c.c.b.SensitiveTest [StartupInfoLogger.java:51] Starting SensitiveTest using Java 20.0.1 with PID 10604 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
-2023-06-15 00:08:10,440 INFO [main] c.c.b.SensitiveTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
-2023-06-15 00:08:11,879 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
-2023-06-15 00:08:12,076 INFO [main] c.c.b.SensitiveTest [StartupInfoLogger.java:57] Started SensitiveTest in 2.022 seconds (process running for 2.837)
-2023-06-15 00:08:45,290 INFO [main] c.c.b.SensitiveTest [StartupInfoLogger.java:51] Starting SensitiveTest using Java 20.0.1 with PID 3280 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
-2023-06-15 00:08:45,293 INFO [main] c.c.b.SensitiveTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
-2023-06-15 00:08:46,439 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
-2023-06-15 00:08:46,604 INFO [main] c.c.b.SensitiveTest [StartupInfoLogger.java:57] Started SensitiveTest in 1.642 seconds (process running for 2.316)
-2023-06-15 00:09:04,920 INFO [main] c.c.b.SensitiveTest [StartupInfoLogger.java:51] Starting SensitiveTest using Java 20.0.1 with PID 16368 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
-2023-06-15 00:09:04,923 INFO [main] c.c.b.SensitiveTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
-2023-06-15 00:09:06,206 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
-2023-06-15 00:09:06,392 INFO [main] c.c.b.SensitiveTest [StartupInfoLogger.java:57] Started SensitiveTest in 1.832 seconds (process running for 2.513)
+2023-06-16 00:42:31,022 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2023-06-16 00:42:31,034 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2023-06-16 00:42:37,203 INFO [restartedMain] c.c.b.BbsdemoApplication [StartupInfoLogger.java:51] Starting BbsdemoApplication using Java 20.0.1 with PID 3908 (C:\Users\14597\bbsproject\bbsdemo\bbsdemo\target\classes started by 14597 in C:\Users\14597\bbsproject\bbsdemo)
+2023-06-16 00:42:37,206 INFO [restartedMain] c.c.b.BbsdemoApplication [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-06-16 00:42:37,259 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:250] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-16 00:42:37,260 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:250] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-16 00:42:38,965 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 8080 (http)
+2023-06-16 00:42:38,979 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-8080"]
+2023-06-16 00:42:38,980 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2023-06-16 00:42:38,981 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-06-16 00:42:39,058 INFO [restartedMain] o.a.c.c.C.[.[.[/community] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2023-06-16 00:42:39,060 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:291] Root WebApplicationContext: initialization completed in 1799 ms
+2023-06-16 00:42:39,726 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-06-16 00:42:39,963 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:59] LiveReload server is running on port 35729
+2023-06-16 00:42:39,979 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-8080"]
+2023-06-16 00:42:40,002 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 8080 (http) with context path '/community'
+2023-06-16 00:42:40,015 INFO [restartedMain] c.c.b.BbsdemoApplication [StartupInfoLogger.java:57] Started BbsdemoApplication in 3.465 seconds (process running for 4.186)
+2023-06-16 00:42:56,059 INFO [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/community] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-16 00:42:56,060 INFO [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:532] Initializing Servlet 'dispatcherServlet'
+2023-06-16 00:42:56,061 INFO [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:554] Completed initialization in 1 ms
+2023-06-16 00:42:56,098 INFO [http-nio-8080-exec-1] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2023-06-16 00:42:56,241 INFO [http-nio-8080-exec-1] c.z.h.p.HikariPool [HikariPool.java:565] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c8e8157
+2023-06-16 00:42:56,243 INFO [http-nio-8080-exec-1] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2023-06-16 00:43:24,325 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2023-06-16 00:43:24,335 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2023-06-16 00:44:27,839 INFO [restartedMain] c.c.b.BbsdemoApplication [StartupInfoLogger.java:51] Starting BbsdemoApplication using Java 20.0.1 with PID 15388 (C:\Users\14597\bbsproject\bbsdemo\bbsdemo\target\classes started by 14597 in C:\Users\14597\bbsproject\bbsdemo)
+2023-06-16 00:44:27,841 INFO [restartedMain] c.c.b.BbsdemoApplication [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-06-16 00:44:27,890 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:250] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-16 00:44:27,890 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:250] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-16 00:44:29,260 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 8080 (http)
+2023-06-16 00:44:29,272 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-8080"]
+2023-06-16 00:44:29,273 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2023-06-16 00:44:29,274 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-06-16 00:44:29,344 INFO [restartedMain] o.a.c.c.C.[.[.[/community] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2023-06-16 00:44:29,345 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:291] Root WebApplicationContext: initialization completed in 1453 ms
+2023-06-16 00:44:30,149 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-06-16 00:44:30,427 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:59] LiveReload server is running on port 35729
+2023-06-16 00:44:30,442 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-8080"]
+2023-06-16 00:44:30,468 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 8080 (http) with context path '/community'
+2023-06-16 00:44:30,480 INFO [restartedMain] c.c.b.BbsdemoApplication [StartupInfoLogger.java:57] Started BbsdemoApplication in 3.199 seconds (process running for 3.699)
+2023-06-16 00:44:35,779 INFO [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/community] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-16 00:44:35,779 INFO [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:532] Initializing Servlet 'dispatcherServlet'
+2023-06-16 00:44:35,780 INFO [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:554] Completed initialization in 1 ms
+2023-06-16 00:44:35,812 INFO [http-nio-8080-exec-1] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2023-06-16 00:44:35,940 INFO [http-nio-8080-exec-1] c.z.h.p.HikariPool [HikariPool.java:565] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@779566a5
+2023-06-16 00:44:35,942 INFO [http-nio-8080-exec-1] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2023-06-16 01:35:08,467 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2023-06-16 01:35:08,471 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
