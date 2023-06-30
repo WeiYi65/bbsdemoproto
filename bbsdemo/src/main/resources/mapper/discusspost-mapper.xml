@@ -42,5 +42,9 @@
         where id=#{id}
     </select><!--这里的id是帖子的id不是userid-->
 
+    <update id="updateCommentCount">
+        update discuss_post set comment_count = #{commentCount} where id = #{postId}
+    </update>
+
     
 </mapper>

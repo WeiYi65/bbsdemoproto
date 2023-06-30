@@ -49,12 +49,21 @@ public class Page {
         this.path = path;
     }
 
-    //获取当前页的起始行
+
+    /**
+     * 获取当前页的起始行
+     *
+     * @return
+     */
     public int getOffset(){
         return (current-1)*limit;
     }
 
-    //获取总页数
+    /**
+     * 获取总页数
+     *
+     * @return
+     */
     public int getTotal(){
         if (rows%limit == 0){//这里是能够整除的意思
             return rows/limit;
@@ -63,12 +72,21 @@ public class Page {
         }
     }
 
-    //获取起始页码
+    /**
+     * 获取起始页码
+     *
+     * @return
+     */
     public int getFrom(){
         int from = current-2;
         return Math.max(from, 1);
     }
 
+    /**
+     * 获取结束页码
+     *
+     * @return
+     */
     public int getTo(){
         int to = current+2;
         int total = getTotal();

@@ -20,4 +20,7 @@ public interface DiscussPostMapper {
     //查看帖子详情方法
     DiscussPost selectDiscussPostByPostId(int id);
 
+    //每次有回帖都要更新原贴的回复数量
+    int updateCommentCount(int postId, int commentCount);
+
 }

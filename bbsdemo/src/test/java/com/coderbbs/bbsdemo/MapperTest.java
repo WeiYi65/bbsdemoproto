@@ -2,9 +2,11 @@ package com.coderbbs.bbsdemo;
 
 import com.coderbbs.bbsdemo.dao.DiscussPostMapper;
 import com.coderbbs.bbsdemo.dao.LoginTicketMapper;
+import com.coderbbs.bbsdemo.dao.MessageMapper;
 import com.coderbbs.bbsdemo.dao.UserMapper;
 import com.coderbbs.bbsdemo.entity.DiscussPost;
 import com.coderbbs.bbsdemo.entity.LoginTicket;
+import com.coderbbs.bbsdemo.entity.Message;
 import com.coderbbs.bbsdemo.entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.junit.jupiter.api.Test;
@@ -29,6 +31,9 @@ public class MapperTest {
 
     @Autowired
     private LoginTicketMapper loginTicketMapper;
+
+    @Autowired
+    private MessageMapper messageMapper;
 
     @Test
     public void testSelectUser(){
@@ -106,6 +111,30 @@ public class MapperTest {
         loginTicketMapper.updateStatus("abc", 1);
         loginTicket = loginTicketMapper.selectByTicket("abc");
         System.out.println(loginTicket);
+    }
+
+    //这里是测试私信sql的方法.几个方法放在一起测了
+    @Test
+    public void testSelectLetters(){
+        List<Message> list = messageMapper.selectConversations(111, 0, 20);
+        for (Message message:list){
+            System.out.println(message);
+        }
+
+        int count = messageMapper.selectConversationCount(111);
+        System.out.println(count);
+
+        list = messageMapper.selectLetters("111_112", 0, 10);
+        for (Message message:list){
+            System.out.println(message);
+        }
+
+        count = messageMapper.selectLetterCount("111_112");
+        System.out.println(count);
+
+        count = messageMapper.selectLetterUnreadCount(131, "111_131");
+        System.out.println(count);
+
     }
 
 
