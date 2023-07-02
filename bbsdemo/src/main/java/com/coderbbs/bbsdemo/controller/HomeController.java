@@ -46,4 +46,10 @@ public class HomeController {
         model.addAttribute("discussPosts", discussPosts);
         return "/index";//这里返回的是templates包下的index.html
     }
+
+    //在这里配置错误页面的访问
+    @RequestMapping(path = "/error", method = RequestMethod.GET)
+    public String getErrorPage(){
+        return "/error/500";
+    }
 }

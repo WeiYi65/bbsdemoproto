@@ -2,15 +2,21 @@ package com.coderbbs.bbsdemo.service;
 
 import com.coderbbs.bbsdemo.dao.MessageMapper;
 import com.coderbbs.bbsdemo.entity.Message;
+import com.coderbbs.bbsdemo.util.SensitiveFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.util.HtmlUtils;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class MessageService {
     @Autowired
     private MessageMapper messageMapper;
+
+    @Autowired
+    private SensitiveFilter sensitiveFilter;
 
     public List<Message> findConversations(int userId, int offset, int limit){
         return messageMapper.selectConversations(userId, offset, limit);
@@ -30,5 +36,19 @@ public class MessageService {
 
     public int findLetterUnreadCount(int userId, String conversationId){
         return messageMapper.selectLetterUnreadCount(userId, conversationId);
+    }
+
+    //发送私信
+    public int addMessage(Message message){
+        //记得过滤敏感词
+        message.setContent(HtmlUtils.htmlEscape(message.getContent()));
+        message.setContent(sensitiveFilter.filter(message.getContent()));
+
+        return messageMapper.insertMessage(message);
+    }
+
+    //把消息变成已读，支持一次读取多条消息
+    public int readMessage(List<Integer> ids){
+        return messageMapper.updateStatus(ids, 1);
     }
 }
