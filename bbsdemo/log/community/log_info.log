@@ -161,3 +161,255 @@
 2023-07-02 00:40:41,973 INFO [http-nio-8080-exec-2] c.c.b.a.ServiceLogAspect [ServiceLogAspect.java:37] User [0:0:0:0:0:0:0:1] visited [com.coderbbs.bbsdemo.service.UserService.findUserById] at [2023-07-02 00:40:41]. 
 2023-07-02 18:28:06,669 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
 2023-07-02 18:28:06,674 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2023-07-02 18:56:59,979 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 7812 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 18:56:59,982 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 18:57:01,031 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 18:57:01,035 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 18:57:01,068 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+2023-07-02 18:57:03,248 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 18:57:03,790 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.386 seconds (process running for 5.824)
+2023-07-02 19:00:18,141 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 48020 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:00:18,143 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:00:18,979 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:00:18,982 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:00:19,022 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:00:21,266 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:00:21,773 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.237 seconds (process running for 5.441)
+2023-07-02 19:00:39,733 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 47684 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:00:39,738 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:00:40,581 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:00:40,587 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:00:40,624 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:00:42,974 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:00:43,478 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.269 seconds (process running for 5.376)
+2023-07-02 19:01:55,069 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 12812 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:01:55,073 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:01:56,018 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:01:56,021 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:01:56,064 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:01:58,653 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:01:59,230 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.773 seconds (process running for 6.018)
+2023-07-02 19:05:06,803 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 3220 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:05:06,805 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:05:07,763 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:05:07,766 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:05:07,808 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:05:10,477 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:05:11,033 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.839 seconds (process running for 6.119)
+2023-07-02 19:08:59,895 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 49876 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:08:59,898 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:09:00,732 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:09:00,735 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:09:00,776 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:09:03,041 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:09:03,538 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.188 seconds (process running for 5.317)
+2023-07-02 19:09:29,329 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 40552 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:09:29,333 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:09:30,315 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:09:30,319 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:09:30,364 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:09:32,992 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:09:33,551 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.837 seconds (process running for 6.114)
+2023-07-02 19:15:04,065 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 17884 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:15:04,068 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:15:05,072 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:15:05,076 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:15:05,115 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:15:07,725 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:15:08,253 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.832 seconds (process running for 6.117)
+2023-07-02 19:16:19,485 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 15772 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:16:19,489 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:16:20,404 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:16:20,409 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:16:20,454 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:16:23,000 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:16:23,506 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.625 seconds (process running for 5.875)
+2023-07-02 19:17:58,942 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 52748 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:17:58,946 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:17:59,886 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:17:59,890 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:17:59,932 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:18:02,508 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:18:03,038 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.715 seconds (process running for 5.974)
+2023-07-02 19:18:51,331 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 20944 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:18:51,335 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:18:52,283 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:18:52,287 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:18:52,340 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 28 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:18:54,991 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:18:55,526 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.828 seconds (process running for 6.145)
+2023-07-02 19:24:36,524 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 47260 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:24:36,528 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:24:37,636 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:24:37,641 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:24:37,690 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:24:40,029 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:24:40,491 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.571 seconds (process running for 5.817)
+2023-07-02 19:26:14,168 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 34768 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:26:14,172 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:26:15,146 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:26:15,150 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:26:15,183 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:26:17,245 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:26:17,694 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.139 seconds (process running for 5.397)
+2023-07-02 19:27:08,678 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 6112 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:27:08,681 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:27:09,591 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:27:09,595 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:27:09,645 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 26 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:27:12,180 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:27:12,718 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.654 seconds (process running for 5.882)
+2023-07-02 19:27:52,960 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 42332 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:27:52,963 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:27:53,899 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:27:53,903 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:27:53,943 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:27:56,510 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:27:57,010 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.647 seconds (process running for 5.915)
+2023-07-02 19:30:35,448 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 42588 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:30:35,451 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:30:36,417 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:30:36,421 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:30:36,460 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:30:38,976 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:30:39,506 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.678 seconds (process running for 5.941)
+2023-07-02 19:32:37,516 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 50448 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:32:37,519 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:32:38,457 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:32:38,462 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:32:38,516 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 29 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:32:41,113 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:32:41,642 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.78 seconds (process running for 6.067)
+2023-07-02 19:34:02,343 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 22896 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:34:02,347 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:34:03,272 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:34:03,278 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:34:03,318 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:34:05,867 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:34:06,399 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.661 seconds (process running for 5.929)
+2023-07-02 19:36:08,580 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 48740 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:36:08,583 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:36:09,496 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:36:09,501 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:36:09,549 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:36:12,039 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:36:12,558 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.591 seconds (process running for 5.85)
+2023-07-02 19:37:03,076 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 50692 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:37:03,079 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:37:04,000 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:37:04,005 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:37:04,047 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:37:06,572 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:37:07,129 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.657 seconds (process running for 5.913)
+2023-07-02 19:37:33,343 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 50328 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:37:33,347 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:37:34,271 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:37:34,275 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:37:34,313 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:37:36,872 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:37:37,391 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.659 seconds (process running for 5.909)
+2023-07-02 19:43:52,542 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 35584 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:43:52,546 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:43:53,521 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:43:53,526 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:43:53,567 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:43:56,108 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:43:56,626 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.687 seconds (process running for 5.968)
+2023-07-02 19:44:29,796 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 50232 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:44:29,799 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:44:30,734 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:44:30,739 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:44:30,792 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:44:33,324 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:44:33,838 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.653 seconds (process running for 5.904)
+2023-07-02 19:53:10,851 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 30100 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:53:10,855 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:53:11,862 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:53:11,867 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:53:11,911 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:53:14,548 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:53:15,125 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.901 seconds (process running for 6.195)
+2023-07-02 19:54:23,142 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 45904 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 19:54:23,148 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 19:54:24,099 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 19:54:24,103 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 19:54:24,143 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 17 ms. Found 0 Redis repository interfaces.
+2023-07-02 19:54:26,699 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 19:54:27,245 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.778 seconds (process running for 6.132)
+2023-07-02 20:12:41,106 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 32968 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 20:12:41,109 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 20:12:42,046 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 20:12:42,050 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 20:12:42,100 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2023-07-02 20:12:44,605 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 20:12:45,137 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.65 seconds (process running for 5.912)
+2023-07-02 20:16:06,918 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 53128 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 20:16:06,921 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 20:16:07,862 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 20:16:07,867 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 20:16:07,922 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2023-07-02 20:16:10,522 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 20:16:11,086 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.786 seconds (process running for 6.055)
+2023-07-02 20:16:21,783 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 18368 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 20:16:21,787 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 20:16:22,724 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 20:16:22,727 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 20:16:22,778 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 27 ms. Found 0 Redis repository interfaces.
+2023-07-02 20:16:25,298 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 20:16:25,812 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.639 seconds (process running for 5.9)
+2023-07-02 20:16:47,193 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 48428 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 20:16:47,196 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 20:16:48,112 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 20:16:48,116 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 20:16:48,156 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 16 ms. Found 0 Redis repository interfaces.
+2023-07-02 20:16:50,697 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 20:16:51,194 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.616 seconds (process running for 5.892)
+2023-07-02 20:19:06,580 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 49552 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 20:19:06,583 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 20:19:07,522 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 20:19:07,526 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 20:19:07,566 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2023-07-02 20:19:10,128 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 20:19:10,667 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.719 seconds (process running for 5.996)
+2023-07-02 20:19:50,217 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 33404 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 20:19:50,221 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 20:19:51,138 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 20:19:51,141 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 20:19:51,182 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2023-07-02 20:19:53,808 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 20:19:54,322 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.707 seconds (process running for 5.969)
+2023-07-02 20:22:21,341 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 9596 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 20:22:21,345 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 20:22:22,324 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 20:22:22,329 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 20:22:22,389 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 32 ms. Found 0 Redis repository interfaces.
+2023-07-02 20:22:25,147 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 20:22:25,676 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.956 seconds (process running for 6.272)
+2023-07-02 20:31:47,102 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 40852 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 20:31:47,106 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 20:31:48,052 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 20:31:48,058 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 20:31:48,108 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+2023-07-02 20:31:50,600 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 20:31:51,132 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.656 seconds (process running for 5.934)
+2023-07-02 22:46:37,986 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 17672 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 22:46:37,990 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 22:46:38,954 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 22:46:38,958 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 22:46:39,011 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 27 ms. Found 0 Redis repository interfaces.
+2023-07-02 22:46:41,579 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 22:46:42,092 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.732 seconds (process running for 6.004)
+2023-07-02 23:41:21,505 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 5264 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 23:41:21,509 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 23:41:22,777 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 23:41:22,782 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 23:41:22,821 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2023-07-02 23:41:25,412 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 23:41:25,887 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 5.067 seconds (process running for 7.077)
+2023-07-02 23:49:40,371 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:51] Starting RedisTest using Java 20.0.1 with PID 5192 (started by 14597 in C:\Users\14597\bbsproject\bbsdemo\bbsdemo)
+2023-07-02 23:49:40,375 INFO [main] c.c.b.RedisTest [SpringApplication.java:633] No active profile set, falling back to 1 default profile: "default"
+2023-07-02 23:49:41,421 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:291] Multiple Spring Data modules found, entering strict repository configuration mode
+2023-07-02 23:49:41,426 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:138] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-07-02 23:49:41,469 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 18 ms. Found 0 Redis repository interfaces.
+2023-07-02 23:49:43,948 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2023-07-02 23:49:44,380 INFO [main] c.c.b.RedisTest [StartupInfoLogger.java:57] Started RedisTest in 4.645 seconds (process running for 5.946)
