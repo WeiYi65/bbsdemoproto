@@ -5,7 +5,9 @@ import com.coderbbs.bbsdemo.entity.DiscussPost;
 import com.coderbbs.bbsdemo.entity.Page;
 import com.coderbbs.bbsdemo.entity.User;
 import com.coderbbs.bbsdemo.service.DiscussPostService;
+import com.coderbbs.bbsdemo.service.LikeService;
 import com.coderbbs.bbsdemo.service.UserService;
+import com.coderbbs.bbsdemo.util.CommunityConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,12 +20,15 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class HomeController {
+public class HomeController implements CommunityConstant {
     @Autowired
     private DiscussPostService discussPostService;
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private LikeService likeService;
 
     @RequestMapping(path = "/index", method = RequestMethod.GET)
     //响应的是网页所以不用写response body了
@@ -40,6 +45,11 @@ public class HomeController {
                 map.put("post", post);
                 User user = userService.findUserById(post.getUserId());
                 map.put("user", user);
+
+                //把赞的数量查询后放到首页帖子
+                long likeCount = likeService.findEntityLikeCount(ENTITY_TYPE_POST, post.getId());
+                map.put("likeCount", likeCount);
+
                 discussPosts.add(map);
             }
         }
