@@ -2,6 +2,7 @@ package com.coderbbs.bbsdemo.controller;
 
 import com.coderbbs.bbsdemo.annotation.LoginRequired;
 import com.coderbbs.bbsdemo.entity.User;
+import com.coderbbs.bbsdemo.service.LikeService;
 import com.coderbbs.bbsdemo.service.UserService;
 import com.coderbbs.bbsdemo.util.CommunityUtil;
 import com.coderbbs.bbsdemo.util.HostHolder;
@@ -12,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,6 +47,9 @@ public class UserController {
 
     @Autowired
     private HostHolder hostHolder;
+
+    @Autowired
+    private LikeService likeService;
 
     @LoginRequired
     @RequestMapping(path="/setting", method = RequestMethod.GET)
@@ -144,6 +149,25 @@ public class UserController {
         userService.updatePassword(user.getId(), newPassword);
 
         return "/site/setting";
+    }
+
+
+    //个人主页
+    @RequestMapping(path = "/profile/{userId}", method = RequestMethod.GET)
+    public String getProfilePage(@PathVariable("userId") int userId, Model model){
+        User user = userService.findUserById(userId);
+        //为了防止黑客攻击要查一下数据是否存在
+        if (user==null){
+            throw new RuntimeException("The user does not exist.");
+        }
+
+        //发送用户信息
+        model.addAttribute("user", user);
+
+        int likeCount = likeService.findUserLikeCount(userId);
+        model.addAttribute("likeCount", likeCount);
+
+        return "/site/profile";
     }
 
 
