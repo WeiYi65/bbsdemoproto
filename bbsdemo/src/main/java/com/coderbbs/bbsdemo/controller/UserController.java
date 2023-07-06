@@ -2,8 +2,10 @@ package com.coderbbs.bbsdemo.controller;
 
 import com.coderbbs.bbsdemo.annotation.LoginRequired;
 import com.coderbbs.bbsdemo.entity.User;
+import com.coderbbs.bbsdemo.service.FollowService;
 import com.coderbbs.bbsdemo.service.LikeService;
 import com.coderbbs.bbsdemo.service.UserService;
+import com.coderbbs.bbsdemo.util.CommunityConstant;
 import com.coderbbs.bbsdemo.util.CommunityUtil;
 import com.coderbbs.bbsdemo.util.HostHolder;
 import jakarta.servlet.http.HttpServletResponse;
@@ -28,7 +30,7 @@ import java.io.OutputStream;
 
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserController implements CommunityConstant {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
@@ -50,6 +52,9 @@ public class UserController {
 
     @Autowired
     private LikeService likeService;
+
+    @Autowired
+    private FollowService followService;
 
     @LoginRequired
     @RequestMapping(path="/setting", method = RequestMethod.GET)
@@ -164,8 +169,24 @@ public class UserController {
         //发送用户信息
         model.addAttribute("user", user);
 
+        //点赞数量
         int likeCount = likeService.findUserLikeCount(userId);
         model.addAttribute("likeCount", likeCount);
+
+        //关注数量
+        long followeeCount = followService.findFolloweeCount(userId, ENTITY_TYPE_USER);
+        model.addAttribute("followeeCount", followeeCount);
+
+        //粉丝数量
+        long followerCount = followService.findFollowerCount(ENTITY_TYPE_USER, userId);
+        model.addAttribute("followerCount", followerCount);
+
+        //是否被当前登录用户关注
+        boolean hasFollowed = false;
+        if(hostHolder.getUser()!=null){
+            hasFollowed = followService.hasFollowed(hostHolder.getUser().getId(), ENTITY_TYPE_USER, userId);
+        }
+        model.addAttribute("hasFollowed", hasFollowed);
 
         return "/site/profile";
     }
