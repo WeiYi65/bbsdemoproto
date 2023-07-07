@@ -1,5 +1,6 @@
 package com.coderbbs.bbsdemo.util;
 
+import io.lettuce.core.ScanStream;
 import io.lettuce.core.cluster.PipelinedRedisFuture;
 import org.apache.ibatis.annotations.Param;
 
@@ -13,6 +14,12 @@ public class RedisKeyUtil {
     private static final String PREFIX_FOLLOWEE = "followee";
 
     private static final String PREFIX_FOLLOWER = "follower";
+
+    private static final String PREFIX_KAPTCHA = "kaptcha";
+
+    private static final String PREFIX_TICKET = "ticket";
+
+    private static final String PREFIX_USER = "user";
 
     //生成某个实体的赞
     // like:entity:entityType:entityId -> set(userId)
@@ -37,6 +44,20 @@ public class RedisKeyUtil {
     // follower:entityType:entityId -> zset(userId, now) 这里有粉丝的可能是帖子或者用户
     public static String getFollowerKey(int entityType, int entityId){
         return PREFIX_FOLLOWER+SPLIT+entityType+SPLIT+entityId;
+    }
+
+    //验证码获取
+    public static String getKaptchaKey(String owner){//使用字符串存入cookie来指代还未登录的用户，这个字符串就叫owner
+        return PREFIX_KAPTCHA+SPLIT+owner;
+    }
+
+    //登录的凭证
+    public static String getTicketKey(String ticket){
+        return PREFIX_TICKET+SPLIT+ticket;
+    }
+
+    public static String getUserKey(int userId){
+        return PREFIX_USER+SPLIT+userId;
     }
 
 }

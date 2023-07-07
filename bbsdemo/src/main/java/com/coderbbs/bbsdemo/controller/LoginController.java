@@ -3,6 +3,8 @@ package com.coderbbs.bbsdemo.controller;
 import com.coderbbs.bbsdemo.entity.User;
 import com.coderbbs.bbsdemo.service.UserService;
 import com.coderbbs.bbsdemo.util.CommunityConstant;
+import com.coderbbs.bbsdemo.util.CommunityUtil;
+import com.coderbbs.bbsdemo.util.RedisKeyUtil;
 import com.google.code.kaptcha.Producer;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -26,6 +29,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.Buffer;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @Controller
 public class LoginController implements CommunityConstant {
@@ -38,6 +42,9 @@ public class LoginController implements CommunityConstant {
 
     @Autowired
     private Producer kaptchaProducer;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Value("${server.servlet.context-path}")
     private String contextPath;
@@ -91,14 +98,28 @@ public class LoginController implements CommunityConstant {
 
     //验证码图片刷新
     @RequestMapping(path="/kaptcha", method=RequestMethod.GET)
-    public void getKaptcha(HttpServletResponse response, HttpSession session){
+    public void getKaptcha(HttpServletResponse response/*, HttpSession session*/){//重构后已不需要用session
         //验证码是敏感信息，要存在客户端里，所以要使用session
         //生成验证码（使用前要把producer那个类作为bean注入）
         String text = kaptchaProducer.createText();//会根据config类里的配置生成字符串
         BufferedImage image = kaptchaProducer.createImage(text);
 
         //把验证码存入session
-        session.setAttribute("kaptcha", text);
+        //session.setAttribute("kaptcha", text);
+
+        //改为存入redis里
+        //解决验证码的归属问题，利用随机生成的字符串
+        String kaptchaOwner = CommunityUtil.generateUUID();
+        Cookie cookie = new Cookie("kaptchaOwner", kaptchaOwner);
+        cookie.setMaxAge(60);//60s就过期
+        cookie.setPath(contextPath);
+        response.addCookie(cookie);
+
+        //把验证码存入redis
+        String redisKey = RedisKeyUtil.getKaptchaKey(kaptchaOwner);
+        redisTemplate.opsForValue().set(redisKey, text, 60, TimeUnit.SECONDS);
+
+
         //将图片输出给浏览器
         response.setContentType("image/png");
         try {
@@ -113,9 +134,16 @@ public class LoginController implements CommunityConstant {
     //可以重复路径，前提是method里的方法要不同。上面的是get，这里的是post
     @RequestMapping(path="/login", method = RequestMethod.POST)
     public String login(String username, String password, String code, boolean rememberMe,
-                        Model model, HttpSession session, HttpServletResponse response){
+                        Model model, /*HttpSession session, */HttpServletResponse response, @CookieValue("kaptchaOwner") String kaptchaOwner){
         //session是因为验证码处用了，response也是一样（用了cookie）
-        String kaptcha = (String) session.getAttribute("kaptcha");
+        //String kaptcha = (String) session.getAttribute("kaptcha");
+        String kaptcha = null;
+        //判断key有没有过期
+        if(StringUtils.isNotBlank(kaptchaOwner)){
+            String redisKey = RedisKeyUtil.getKaptchaKey(kaptchaOwner);
+            kaptcha = (String) redisTemplate.opsForValue().get(redisKey);
+        }
+
         //上面是因为getAttri返回的是object，要强制转换成String
 
         if (StringUtils.isBlank(kaptcha) || StringUtils.isBlank(code) || !kaptcha.equalsIgnoreCase(code)){

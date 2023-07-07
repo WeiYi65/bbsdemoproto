@@ -4,6 +4,7 @@ import com.coderbbs.bbsdemo.entity.LoginTicket;
 import org.apache.ibatis.annotations.*;
 
 @Mapper
+@Deprecated //意思是已经不推荐使用了
 public interface LoginTicketMapper {
     //增删改方法通常会返回操作的行数，sql每句话后面最好加个空格
     @Insert({

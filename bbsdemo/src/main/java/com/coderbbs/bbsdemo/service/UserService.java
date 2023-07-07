@@ -7,9 +7,12 @@ import com.coderbbs.bbsdemo.entity.User;
 import com.coderbbs.bbsdemo.util.CommunityConstant;
 import com.coderbbs.bbsdemo.util.CommunityUtil;
 import com.coderbbs.bbsdemo.util.MailClient;
+import com.coderbbs.bbsdemo.util.RedisKeyUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.cache.CacheProperties;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
@@ -29,7 +32,10 @@ public class UserService implements CommunityConstant {
     private TemplateEngine templateEngine;
 
     @Autowired
-    private LoginTicketMapper loginTicketMapper;
+    private RedisTemplate redisTemplate;
+
+    //@Autowired
+    //private LoginTicketMapper loginTicketMapper;
 
     @Value("${community.path.domain}")//这里是在引用properties里的值并让他变成domain
     private String domain;
@@ -38,6 +44,7 @@ public class UserService implements CommunityConstant {
     private String contextPath;
 
     //提供根据用户id查询用户的服务
+    //这是非常频繁使用的方法，所以现在不再用sql而是用redis来访问，提高效率。现在去最下方建立缓存查找方法，如果找不到再调这里的
     public User findUserById(int id){
         return userMapper.selectById(id);
     }
@@ -158,7 +165,10 @@ public class UserService implements CommunityConstant {
         loginTicket.setTicket(CommunityUtil.generateUUID());
         loginTicket.setStatus(0);
         loginTicket.setExpired(new Date(System.currentTimeMillis()+expiredSeconds*1000));
-        loginTicketMapper.insertLoginTicket(loginTicket);//把新生成的凭证放进sql里
+        //loginTicketMapper.insertLoginTicket(loginTicket);//把新生成的凭证放进sql里
+
+        String redisKey = RedisKeyUtil.getTicketKey(loginTicket.getTicket());
+        redisTemplate.opsForValue().set(redisKey, loginTicket);
 
         map.put("ticket", loginTicket.getTicket());
 
@@ -167,11 +177,17 @@ public class UserService implements CommunityConstant {
 
     //退出登录
     public void logout(String ticket){
-        loginTicketMapper.updateStatus(ticket, 1);
+        //loginTicketMapper.updateStatus(ticket, 1);
+        String redisKey = RedisKeyUtil.getTicketKey(ticket);
+        LoginTicket loginTicket = (LoginTicket) redisTemplate.opsForValue().get(redisKey);
+        loginTicket.setStatus(1);
+        redisTemplate.opsForValue().set(redisKey, loginTicket);
     }
 
     public LoginTicket findLoginTicket(String ticket){
-        return loginTicketMapper.selectByTicket(ticket);
+        //return loginTicketMapper.selectByTicket(ticket);
+        String redisKey = RedisKeyUtil.getTicketKey(ticket);
+        return (LoginTicket) redisTemplate.opsForValue().get(redisKey);
     }
 
     public int updateHeader(int userId, String headerUrl){
@@ -191,4 +207,11 @@ public class UserService implements CommunityConstant {
     public User findUserByName(String username){
         return userMapper.selectByName(username);
     }
+
+    //缓存管理用户数据方法：1、优先从缓存取值。2、若取不到，初始化缓存数据。3、数据变更时，清除缓存。
+    //先写第一个方法
+    private User getCache(int userId){
+
+    }
+
 }
