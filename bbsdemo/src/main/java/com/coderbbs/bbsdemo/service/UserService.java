@@ -19,6 +19,7 @@ import org.thymeleaf.context.Context;
 
 import java.sql.SQLOutput;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class UserService implements CommunityConstant {
@@ -46,7 +47,12 @@ public class UserService implements CommunityConstant {
     //提供根据用户id查询用户的服务
     //这是非常频繁使用的方法，所以现在不再用sql而是用redis来访问，提高效率。现在去最下方建立缓存查找方法，如果找不到再调这里的
     public User findUserById(int id){
-        return userMapper.selectById(id);
+        //return userMapper.selectById(id);
+        User user = getCache(id);
+        if (user == null){
+            user = initCache(id);
+        }
+        return user;
     }
 
     public Map<String, Object> register(User user){//注册方法
@@ -118,6 +124,7 @@ public class UserService implements CommunityConstant {
         }else if(user.getActivationCode().equals(code)){
             //如果激活码和传入的激活码一致，那么激活成功
             userMapper.updateStatus(userId, 1);
+            clearCache(userId);
             return ACTIVATION_SUCCESS;
         }
         else{
@@ -191,7 +198,10 @@ public class UserService implements CommunityConstant {
     }
 
     public int updateHeader(int userId, String headerUrl){
-        return userMapper.updateHeader(userId, headerUrl);
+        //return userMapper.updateHeader(userId, headerUrl);
+        int rows = userMapper.updateHeader(userId, headerUrl);
+        clearCache(userId);
+        return rows;
     }
 
     public int updatePassword(int userId, String password){
@@ -211,7 +221,21 @@ public class UserService implements CommunityConstant {
     //缓存管理用户数据方法：1、优先从缓存取值。2、若取不到，初始化缓存数据。3、数据变更时，清除缓存。
     //先写第一个方法
     private User getCache(int userId){
+        String redisKey = RedisKeyUtil.getUserKey(userId);
+        return (User) redisTemplate.opsForValue().get(redisKey);
+    }
 
+    //就是把用户放进缓存里
+    private User initCache(int userId){
+        User user = userMapper.selectById(userId);
+        String redisKey = RedisKeyUtil.getUserKey(userId);
+        redisTemplate.opsForValue().set(redisKey, user, 3600, TimeUnit.SECONDS);//缓存的数据会保存一个小时
+        return user;
+    }
+
+    private void clearCache(int userId){
+        String redisKey = RedisKeyUtil.getUserKey(userId);
+        redisTemplate.delete(redisKey);
     }
 
 }
