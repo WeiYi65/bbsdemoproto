@@ -1,7 +1,9 @@
 package com.coderbbs.bbsdemo.controller;
 
+import com.coderbbs.bbsdemo.entity.Event;
 import com.coderbbs.bbsdemo.entity.Page;
 import com.coderbbs.bbsdemo.entity.User;
+import com.coderbbs.bbsdemo.event.EventProducer;
 import com.coderbbs.bbsdemo.service.FollowService;
 import com.coderbbs.bbsdemo.service.UserService;
 import com.coderbbs.bbsdemo.util.CommunityConstant;
@@ -30,6 +32,10 @@ public class FollowController implements CommunityConstant {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private EventProducer eventProducer;
+
+
     //注意，一点关注的话，整个请求页面会刷新，所以是异步
     @RequestMapping(path = "/follow", method = RequestMethod.POST)
     @ResponseBody
@@ -37,6 +43,16 @@ public class FollowController implements CommunityConstant {
         User user = hostHolder.getUser();
 
         followService.follow(user.getId(), entityType, entityId);
+
+        //触发关注通知
+        Event event = new Event()
+                .setTopic(TOPIC_FOLLOW)
+                .setUserId(hostHolder.getUser().getId())
+                .setEntityType(entityType)
+                .setEntityId(entityId)
+                .setEntityUserId(entityId);//不需要发送帖子消息了，但是可以连接到关注你的人的主页
+        eventProducer.fireEvent(event);
+
         return CommunityUtil.getJSONString(0, "Followed successfully!");
     }
 

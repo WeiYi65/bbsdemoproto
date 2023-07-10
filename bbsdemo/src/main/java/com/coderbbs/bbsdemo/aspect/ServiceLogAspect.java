@@ -29,6 +29,9 @@ public class ServiceLogAspect {
         //输出用户xxx（ip地址）在xxx时间访问了xxx功能调用了xxx方法
         //获取ip和时间
         ServletRequestAttributes attributes = (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
+        if (attributes==null){
+            return;
+        }
         HttpServletRequest request = attributes.getRequest();
         String ip = request.getRemoteHost();
         String now = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
