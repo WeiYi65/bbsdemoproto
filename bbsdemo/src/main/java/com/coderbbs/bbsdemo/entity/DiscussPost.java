@@ -1,16 +1,43 @@
 package com.coderbbs.bbsdemo.entity;
 
+
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
+
 import java.util.Date;
 
+@Document(indexName = "discusspost")
 public class DiscussPost {
+
+    @Id
     private int id;
+
+    @Field(type = FieldType.Integer)
     private int userId;
+
+    //analyzer就是提取关键词，在存的时候和搜索的时候就进行拆分，鉴于这里没装中文分词器所以留空
+    @Field(type = FieldType.Text, analyzer = "", searchAnalyzer = "")
     private String title;
+
+    @Field(type = FieldType.Text)
     private String content;
+
+    @Field(type = FieldType.Integer)
     private int type;
+
+    @Field(type = FieldType.Integer)
     private int status;
+
+    @Field(type = FieldType.Date)
     private Date createTime;
+
+    @Field(type = FieldType.Integer)
     private int commentCount;
+
+    @Field(type = FieldType.Double)
     private double score;
 
     public int getId() {
