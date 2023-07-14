@@ -17,12 +17,12 @@ public class AlphaInterceptor implements HandlerInterceptor {//拦截器的接�
     //其实不用都实现，仅作为熟练用
     //在做完方法后还需要进行配置。配置文件在condig包下
 
-    @Override
+    //@Override
     //在controller之前执行，一般不咋用
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        logger.debug("preHandle: "+handler.toString());
-        return HandlerInterceptor.super.preHandle(request, response, handler);//先不管他
-    }
+//    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+//        logger.debug("preHandle: "+handler.toString());
+//        return HandlerInterceptor.super.preHandle(request, response, handler);//先不管他
+//    }
 
     @Override
     //在controller之后执行（在调用模版引擎之前）

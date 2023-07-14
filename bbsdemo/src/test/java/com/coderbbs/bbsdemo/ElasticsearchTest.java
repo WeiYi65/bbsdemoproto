@@ -1,9 +1,12 @@
 package com.coderbbs.bbsdemo;
 
 import co.elastic.clients.elasticsearch._types.query_dsl.QueryBuilders;
+import co.elastic.clients.elasticsearch.core.SearchRequest;
 import com.coderbbs.bbsdemo.dao.DiscussPostMapper;
 import com.coderbbs.bbsdemo.dao.elasticsearch.DiscussPostRepository;
 import com.coderbbs.bbsdemo.entity.DiscussPost;
+import org.apache.http.HttpHost;
+import org.elasticsearch.client.RestClient;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,6 +16,8 @@ import org.springframework.data.elasticsearch.client.erhlc.NativeSearchQueryBuil
 import org.springframework.data.elasticsearch.core.query.SearchTemplateQuery;
 import org.springframework.data.elasticsearch.core.query.SearchTemplateQueryBuilder;
 import org.springframework.test.context.ContextConfiguration;
+
+import java.io.IOException;
 
 @SpringBootTest
 @ContextConfiguration(classes = BbsdemoApplication.class)
@@ -26,6 +31,9 @@ public class ElasticsearchTest {
 
     @Autowired
     private ElasticsearchTemplate elasticsearchTemplate;
+
+    @Autowired
+    private RestClient restClient;
 
     @Test
     //每次只能插入一条数据
@@ -67,9 +75,8 @@ public class ElasticsearchTest {
 
     //es最核心的搜索功能
     @Test
-    public void testSearchByRepository(){
-
-
+    public void testMatchAll() throws IOException {
+        RestClient restClient1 = RestClient.builder(new HttpHost("localhost", 9200)).build();
     }
 
 }

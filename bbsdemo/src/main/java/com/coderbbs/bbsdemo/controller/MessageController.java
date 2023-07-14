@@ -171,9 +171,8 @@ public class MessageController implements CommunityConstant {
 
         //查询评论通知
         Message message = messageService.findLatestNotice(user.getId(), TOPIC_COMMENT);
-        System.out.println(message);
-        Map<String, Object> messageVO = new HashMap<>();
         if (message != null){
+            Map<String, Object> messageVO = new HashMap<>();
             messageVO.put("message", message);
 
             //把转义字符（sql里message的content里是json字符）还原回正常的字符
@@ -192,15 +191,18 @@ public class MessageController implements CommunityConstant {
             //未读的数量
             int unread = messageService.findNoticeUnreadCount(user.getId(), TOPIC_COMMENT);
             messageVO.put("unread", unread);
+
+            //把messageVO放到模板里
+            model.addAttribute("commentNotice", messageVO);
         }
-        //把messageVO放到模板里
-        model.addAttribute("commentNotice", messageVO);
+
 
 
         //查询点赞通知
         message = messageService.findLatestNotice(user.getId(), TOPIC_LIKE);
-        messageVO = new HashMap<>();
+
         if (message != null){
+            Map<String, Object> messageVO = new HashMap<>();
             messageVO.put("message", message);
 
             //把转义字符（sql里message的content里是json字符）还原回正常的字符
@@ -219,14 +221,16 @@ public class MessageController implements CommunityConstant {
             //未读的数量
             int unread = messageService.findNoticeUnreadCount(user.getId(), TOPIC_LIKE);
             messageVO.put("unread", unread);
+
+            //把messageVO放到模板里
+            model.addAttribute("likeNotice", messageVO);
         }
-        //把messageVO放到模板里
-        model.addAttribute("likeNotice", messageVO);
+
 
         //查询关注通知
         message = messageService.findLatestNotice(user.getId(), TOPIC_FOLLOW);
-        messageVO = new HashMap<>();
         if (message != null){
+            Map<String, Object> messageVO = new HashMap<>();
             messageVO.put("message", message);
 
             //把转义字符（sql里message的content里是json字符）还原回正常的字符
@@ -244,9 +248,11 @@ public class MessageController implements CommunityConstant {
             //未读的数量
             int unread = messageService.findNoticeUnreadCount(user.getId(), TOPIC_FOLLOW);
             messageVO.put("unread", unread);
+
+            //把messageVO放到模板里
+            model.addAttribute("followNotice", messageVO);
         }
-        //把messageVO放到模板里
-        model.addAttribute("followNotice", messageVO);
+
 
         //然后显示私信未读的和和系统消息的未读数量的和
         int letterUnreadCount = messageService.findLetterUnreadCount(user.getId(), null);//null就是查询全部

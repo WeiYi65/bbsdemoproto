@@ -8,6 +8,10 @@ import com.coderbbs.bbsdemo.util.HostHolder;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -40,6 +44,13 @@ public class LoginTicketInterceptor implements HandlerInterceptor {
                 //要暂存在本次请求中持有的user。最好能同时处理多个用户（因为服务器是多线程并发，要考虑线程隔离
                 //解决多线程隔离的工具叫做ThreadLocal,在util包下
                 hostHolder.setUser(user);
+
+
+                //构建用户认证的结果并存入security context里，以便security进行授权
+                Authentication authentication = new UsernamePasswordAuthenticationToken(
+                        user, user.getPassword(), userService.getAuthorities(user.getId()));
+
+                SecurityContextHolder.setContext(new SecurityContextImpl(authentication));
             }
         }
 
@@ -59,5 +70,7 @@ public class LoginTicketInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         hostHolder.clear();
+        //清理security
+        SecurityContextHolder.clearContext();
     }
 }
