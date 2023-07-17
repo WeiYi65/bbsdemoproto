@@ -23,4 +23,8 @@ public interface DiscussPostMapper {
     //每次有回帖都要更新原贴的回复数量
     int updateCommentCount(int postId, int commentCount);
 
+    int updateType(int id, int type);
+
+    int updateStatus(int id, int status);
+
 }

@@ -64,6 +64,26 @@ public class SecurityConfig implements CommunityConstant {
 //                        })
 //                );
 
+//        http.authorizeRequests()
+//                .requestMatchers("/user/setting",
+//                        "/user/upload",
+//                        "/discuss/add",
+//                        "/comment/add/**",
+//                        "/letter/**",
+//                        "/notice/**",
+//                        "/like",
+//                        "/follow",
+//                        "/unfollow")
+//                .hasAnyAuthority(AUTHORITY_USER,
+//                        AUTHORITY_ADMIN,
+//                        AUTHORITY_MODERATOR)
+//                .requestMatchers("/discuss/top",
+//                        "/discuss/wonderful")
+//                .hasAnyAuthority(AUTHORITY_MODERATOR)
+//                .requestMatchers("/discuss/delete")
+//                .hasAnyAuthority(AUTHORITY_ADMIN)
+//                .anyRequest().permitAll();
+
         //权限不够的处理办法
         http.exceptionHandling().authenticationEntryPoint(new AuthenticationEntryPoint() {
             //未登录
@@ -87,6 +107,7 @@ public class SecurityConfig implements CommunityConstant {
                     response.setContentType("application/plain;charset=utf-8");
                     PrintWriter writer = response.getWriter();
                     writer.write(CommunityUtil.getJSONString(403, "You need higher authority to access this page."));
+                    writer.write(CommunityUtil.getJSONString(0));
                 }else {
                     response.sendRedirect(request.getContextPath()+"/denied");
                 }

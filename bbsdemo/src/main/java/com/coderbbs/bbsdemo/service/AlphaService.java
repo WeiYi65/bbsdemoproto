@@ -9,8 +9,12 @@ import com.coderbbs.bbsdemo.entity.User;
 import com.coderbbs.bbsdemo.util.CommunityUtil;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.ParameterResolutionDelegate;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
@@ -26,6 +30,8 @@ import java.util.Date;
 @Service
 //内含容器的初始化、管理和销毁方法
 public class AlphaService {
+
+    private static final Logger logger = LoggerFactory.getLogger(AlphaService.class);
 
     @Autowired //注入Dao使service依赖dao.查询业务会用到dao。controller依赖service，而service依赖dao
     private AlphaDao alphaDao;
@@ -126,4 +132,16 @@ public class AlphaService {
         });
     }
 
+
+    //简易使用spring线程池
+    @Async//这个注解可以让该方法在多线程环境下被异步地调用
+    public void execute1(){
+        logger.debug("execute1");
+    }
+
+    //定时地调用注解演示
+    @Scheduled(initialDelay = 10000, fixedRate = 1000)
+    public void execute2(){
+        logger.debug("execute2");
+    }
 }

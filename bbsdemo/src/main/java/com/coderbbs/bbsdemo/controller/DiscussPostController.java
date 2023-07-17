@@ -1,9 +1,6 @@
 package com.coderbbs.bbsdemo.controller;
 
-import com.coderbbs.bbsdemo.entity.Comment;
-import com.coderbbs.bbsdemo.entity.DiscussPost;
-import com.coderbbs.bbsdemo.entity.Page;
-import com.coderbbs.bbsdemo.entity.User;
+import com.coderbbs.bbsdemo.entity.*;
 import com.coderbbs.bbsdemo.service.CommentService;
 import com.coderbbs.bbsdemo.service.DiscussPostService;
 import com.coderbbs.bbsdemo.service.LikeService;
@@ -142,6 +139,43 @@ public class DiscussPostController implements CommunityConstant {
         model.addAttribute("comments", commentVoList);
 
         return "/site/discuss-detail";
+    }
+
+
+    //置顶请求
+    @RequestMapping(path = "/top", method = RequestMethod.POST)
+    @ResponseBody
+    public String setTop(int id){//这里是post的id
+        discussPostService.updateType(id, 1);
+
+        //把帖子数据同步到elasticsearch里，这里暂放（p45）
+        //Event event = new Event().setTopic(TOPIC)
+
+        return CommunityUtil.getJSONString(0);
+    }
+
+    //加精请求
+    @RequestMapping(path = "/wonderful", method = RequestMethod.POST)
+    @ResponseBody
+    public String setWonderful(int id){//这里是post的id
+        discussPostService.updateStatus(id, 1);
+
+        //把帖子数据同步到elasticsearch里，这里暂放（p45）
+        //Event event = new Event().setTopic(TOPIC)
+
+        return CommunityUtil.getJSONString(0);
+    }
+
+    //删除
+    @RequestMapping(path = "/delete", method = RequestMethod.POST)
+    @ResponseBody
+    public String setDelete(int id){//这里是post的id
+        discussPostService.updateStatus(id, 2);
+
+        //把帖子数据同步到elasticsearch里，这里暂放（p45），这里应该是删帖事件
+        //Event event = new Event().setTopic(TOPIC)
+
+        return CommunityUtil.getJSONString(0);
     }
 
 }
