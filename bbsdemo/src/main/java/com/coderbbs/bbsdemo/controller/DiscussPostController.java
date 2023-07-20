@@ -1,6 +1,7 @@
 package com.coderbbs.bbsdemo.controller;
 
 import com.coderbbs.bbsdemo.entity.*;
+import com.coderbbs.bbsdemo.event.EventProducer;
 import com.coderbbs.bbsdemo.service.CommentService;
 import com.coderbbs.bbsdemo.service.DiscussPostService;
 import com.coderbbs.bbsdemo.service.LikeService;
@@ -8,7 +9,10 @@ import com.coderbbs.bbsdemo.service.UserService;
 import com.coderbbs.bbsdemo.util.CommunityConstant;
 import com.coderbbs.bbsdemo.util.CommunityUtil;
 import com.coderbbs.bbsdemo.util.HostHolder;
+import com.coderbbs.bbsdemo.util.RedisKeyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.index.PathBasedRedisIndexDefinition;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,6 +40,12 @@ public class DiscussPostController implements CommunityConstant {
     @Autowired
     private LikeService likeService;
 
+    @Autowired
+    private EventProducer eventProducer;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+
     @RequestMapping(path = "/add", method = RequestMethod.POST)
     @ResponseBody
     public String addDiscussPost(String title, String content){
@@ -51,6 +61,18 @@ public class DiscussPostController implements CommunityConstant {
         discussPost.setCreateTime(new Date());
 
         discussPostService.addDiscussPost(discussPost);
+
+        //触发发帖事件
+        Event event = new Event()
+                .setTopic(TOPIC_PUBLISH)
+                .setUserId(user.getId())
+                .setEntityType(ENTITY_TYPE_POST)
+                .setEntityId(discussPost.getId());
+        eventProducer.fireEvent(event);
+
+        //计算帖子分数
+        String redisKey = RedisKeyUtil.getPostScoreKey();
+        redisTemplate.opsForSet().add(redisKey, discussPost.getId());
 
         //本处可能诞生的bug由将来统一处理
         //0说明状态正确
@@ -149,7 +171,12 @@ public class DiscussPostController implements CommunityConstant {
         discussPostService.updateType(id, 1);
 
         //把帖子数据同步到elasticsearch里，这里暂放（p45）
-        //Event event = new Event().setTopic(TOPIC)
+        Event event = new Event()
+                .setTopic(TOPIC_PUBLISH)
+                .setUserId(hostHolder.getUser().getId())
+                .setEntityType(ENTITY_TYPE_POST)
+                .setEntityId(id);
+        eventProducer.fireEvent(event);
 
         return CommunityUtil.getJSONString(0);
     }
@@ -161,7 +188,16 @@ public class DiscussPostController implements CommunityConstant {
         discussPostService.updateStatus(id, 1);
 
         //把帖子数据同步到elasticsearch里，这里暂放（p45）
-        //Event event = new Event().setTopic(TOPIC)
+        Event event = new Event()
+                .setTopic(TOPIC_PUBLISH)
+                .setUserId(hostHolder.getUser().getId())
+                .setEntityType(ENTITY_TYPE_POST)
+                .setEntityId(id);
+        eventProducer.fireEvent(event);
+
+        //计算帖子分数
+        String redisKey = RedisKeyUtil.getPostScoreKey();
+        redisTemplate.opsForSet().add(redisKey, id);
 
         return CommunityUtil.getJSONString(0);
     }
@@ -173,7 +209,12 @@ public class DiscussPostController implements CommunityConstant {
         discussPostService.updateStatus(id, 2);
 
         //把帖子数据同步到elasticsearch里，这里暂放（p45），这里应该是删帖事件
-        //Event event = new Event().setTopic(TOPIC)
+        Event event = new Event()
+                .setTopic(TOPIC_PUBLISH)
+                .setUserId(hostHolder.getUser().getId())
+                .setEntityType(ENTITY_TYPE_POST)
+                .setEntityId(id);
+        eventProducer.fireEvent(event);
 
         return CommunityUtil.getJSONString(0);
     }

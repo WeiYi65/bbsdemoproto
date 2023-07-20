@@ -8,7 +8,9 @@ import com.coderbbs.bbsdemo.service.CommentService;
 import com.coderbbs.bbsdemo.service.DiscussPostService;
 import com.coderbbs.bbsdemo.util.CommunityConstant;
 import com.coderbbs.bbsdemo.util.HostHolder;
+import com.coderbbs.bbsdemo.util.RedisKeyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +33,9 @@ public class CommentController implements CommunityConstant {
 
     @Autowired
     private DiscussPostService discussPostService;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     //回复的方法
     @RequestMapping(path = "/add/{discussPostId}", method = RequestMethod.POST)
@@ -60,6 +65,20 @@ public class CommentController implements CommunityConstant {
 
         //生产，这也是异步（并发）的
         eventProducer.fireEvent(event);
+
+
+        if (comment.getEntityType() == ENTITY_TYPE_POST) {
+            // 触发发帖事件
+            event = new Event()
+                    .setTopic(TOPIC_PUBLISH)
+                    .setUserId(comment.getUserId())
+                    .setEntityType(ENTITY_TYPE_POST)
+                    .setEntityId(discussPostId);
+            eventProducer.fireEvent(event);
+            // 计算帖子分数
+            String redisKey = RedisKeyUtil.getPostScoreKey();
+            redisTemplate.opsForSet().add(redisKey, discussPostId);
+        }
 
         //重定向回帖子的详情页面
         return "redirect:/discuss/detail/" + discussPostId;

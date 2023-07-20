@@ -140,8 +140,8 @@ public class AlphaService {
     }
 
     //定时地调用注解演示
-    @Scheduled(initialDelay = 10000, fixedRate = 1000)
-    public void execute2(){
-        logger.debug("execute2");
-    }
+//    @Scheduled(initialDelay = 10000, fixedRate = 1000)
+//    public void execute2(){
+//        logger.debug("execute2");
+//    }
 }

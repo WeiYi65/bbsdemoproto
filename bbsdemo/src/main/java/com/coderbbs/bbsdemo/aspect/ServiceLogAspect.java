@@ -14,8 +14,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Aspect
-@Component
+//@Aspect
+//@Component
 public class ServiceLogAspect {
     private static final Logger logger = LoggerFactory.getLogger(ServiceLogAspect.class);
 

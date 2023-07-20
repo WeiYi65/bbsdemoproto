@@ -46,15 +46,15 @@ public class ElasticsearchTest {
     @Test
     //每次能插入多条数据，根据用户id创建
     public void testInsertList(){
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(101, 0, 100));
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(102, 0, 100));
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(103, 0, 100));
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(111, 0, 100));
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(112, 0, 100));
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(131, 0, 100));
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(132, 0, 100));
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(133, 0, 100));
-        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(134, 0, 100));
+        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(101, 0, 100, 0));
+        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(102, 0, 100, 0));
+        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(103, 0, 100, 0));
+        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(111, 0, 100, 0));
+        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(112, 0, 100, 0));
+        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(131, 0, 100, 0));
+        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(132, 0, 100, 0));
+        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(133, 0, 100, 0));
+        discussPostRepository.saveAll(discussPostMapper.selectDiscussPosts(134, 0, 100, 0));
     }
 
     @Test

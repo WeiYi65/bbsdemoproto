@@ -81,7 +81,7 @@ public class MapperTest {
     @Test
     public void testSelectPosts(){
         //把所有查询的用户的帖子放在一个列表里并循环打印该列表
-        List<DiscussPost> list = discussPostMapper.selectDiscussPosts(149, 0, 10);
+        List<DiscussPost> list = discussPostMapper.selectDiscussPosts(149, 0, 10, 0);
         for(DiscussPost post : list){
             System.out.println(post);
         }
